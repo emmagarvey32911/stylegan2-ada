@@ -1,8 +1,8 @@
-## StyleGAN2 with adaptive discriminator augmentation (ADA)<br>&mdash for use in the Art and AI research Group at the University of Vermont
+## StyleGAN2 with adaptive discriminator augmentation (ADA)<br> for use in the Art and AI research Group at the University of Vermont
 ### Art and AI Research Group Documentation
 
 
-
+Include Documentation for Art & AI work here!
 
 
 
