@@ -1,5 +1,16 @@
-## StyleGAN2 with adaptive discriminator augmentation (ADA)<br>&mdash; Official TensorFlow implementation
+## StyleGAN2 with adaptive discriminator augmentation (ADA)<br>&mdash for use in the Art and AI research Group at the University of Vermont
+### Art and AI Research Group Documentation
 
+
+
+
+
+
+
+
+
+
+### Original Documentation from the Tensorflow implementation of Style GAN - ADA
 ![Teaser image](./docs/stylegan2-ada-teaser-1024x252.png)
 
 **Training Generative Adversarial Networks with Limited Data**<br>
