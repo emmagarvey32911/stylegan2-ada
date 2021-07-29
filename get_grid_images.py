@@ -55,7 +55,7 @@ def main(folder, infile):
     
 
     # Generate images
-    os.mkdir('latent_explore/{}'.format(str(infile)[:-4]))
+    os.mkdir('grid-images/{}'.format(str(infile)[:-4]))
     count=0
     #same args as training_loop.py
     Gs_kwargs = {
@@ -70,7 +70,7 @@ def main(folder, infile):
         images = Gs.run(vector, None, **Gs_kwargs)
     
         # Save image.
-        png_filename = 'latent_explore/{}/{}.png'.format(str(infile)[:-4],count)
+        png_filename = 'grid-images/{}/{}.png'.format(str(infile)[:-4],count)
         PIL.Image.fromarray(images[0], 'RGB').save(png_filename)
         count+=1
 
