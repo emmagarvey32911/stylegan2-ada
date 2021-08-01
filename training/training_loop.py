@@ -138,6 +138,8 @@ def training_loop(
     save_image_grid(grid_reals, os.path.join(run_dir, 'reals.png'), drange=[0,255], grid_size=grid_size)
 
     # create latent vectors to be used on grid throughout training
+    # takes product of grid dimensions to get number of grid images and therefore number of vectors required,
+    # then uses the second argument of input_shape to get length of vectors needed (512)
     grid_latents = np.random.randn(np.prod(grid_size), *G.input_shape[1:])
 
     # create initial fakes snapshot
