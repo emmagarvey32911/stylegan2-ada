@@ -132,9 +132,17 @@ def training_loop(
     D.print_layers()
 
     print('Exporting sample images...')
+
+    # create reals snapshot
     grid_size, grid_reals, grid_labels = setup_snapshot_image_grid(training_set)
     save_image_grid(grid_reals, os.path.join(run_dir, 'reals.png'), drange=[0,255], grid_size=grid_size)
+
+    # create latent vectors to be used on grid throughout training
+    # takes product of grid dimensions to get number of grid images and therefore number of vectors required,
+    # then uses the second argument of input_shape to get length of vectors needed (512)
     grid_latents = np.random.randn(np.prod(grid_size), *G.input_shape[1:])
+
+    # create initial fakes snapshot
     grid_fakes = Gs.run(grid_latents, grid_labels, is_validation=True, minibatch_size=minibatch_gpu)
     save_image_grid(grid_fakes, os.path.join(run_dir, 'fakes_init.png'), drange=[-1,1], grid_size=grid_size)
 
@@ -300,6 +308,8 @@ def training_loop(
 
             # Save snapshots.
             if image_snapshot_ticks is not None and (done or cur_tick % image_snapshot_ticks == 0):
+
+                # save snapshot grid during training at intervals determined by snap
                 grid_fakes = Gs.run(grid_latents, grid_labels, is_validation=True, minibatch_size=minibatch_gpu)
                 save_image_grid(grid_fakes, os.path.join(run_dir, f'fakes{cur_nimg // 1000:06d}.png'), drange=[-1,1], grid_size=grid_size)
             if network_snapshot_ticks is not None and (done or cur_tick % network_snapshot_ticks == 0):
