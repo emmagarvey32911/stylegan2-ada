@@ -66,8 +66,8 @@ def main(folder, infile):
 
     #generate and save images
     for vector in grid_latents:
-       # fmt = dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True)
-        images = Gs.run(vector, None, is_validation=True, minibatch_size=minibatch_gpu)   #**Gs_kwargs)
+        fmt = dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True)
+        images = Gs.run(vector, None, is_validation=True, minibatch_size=4,**Gs_kwargs)
     
         # Save image.
         png_filename = 'grid-images/{}/{}.png'.format(str(infile)[:-4],count)

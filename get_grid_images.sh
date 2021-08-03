@@ -5,7 +5,6 @@
 #SBATCH --time=00:05:00
 #SBATCH --job-name=stylegan
 #SBATCH --mail-user=ethan.davis@uvm.edu
-cd $HOME/Art/stylegan2-ada
 export PATH=/gpfs3/arch/x86_64-rhel7/cuda-10.0/bin:${PATH}
 export LD_LIBRARY_PATH=/gpfs3/arch/x86_64-rhel7/cuda-10.0/lib64:${LD_LIBRARY_PATH}
 folder=$1
